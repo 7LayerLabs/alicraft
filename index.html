@@ -184,70 +184,6 @@
       pointer-events: none;
     }
 
-    .video-cta {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: rgba(253, 248, 242, 0.92);
-      border: none;
-      padding: 16px 32px;
-      border-radius: 50px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      z-index: 2;
-      font-family: 'Nunito', sans-serif;
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--brown-dark);
-    }
-
-    .video-cta:hover {
-      transform: translate(-50%, -50%) scale(1.05);
-      background: #fff;
-    }
-
-    .video-cta.hidden {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s;
-    }
-
-    .replay-btn {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0);
-      background: rgba(253, 248, 242, 0.92);
-      border: none;
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
-      z-index: 2;
-      opacity: 0;
-      font-size: 1.5rem;
-      color: var(--brown-dark);
-    }
-
-    .replay-btn.visible {
-      transform: translate(-50%, -50%) scale(1);
-      opacity: 1;
-    }
-
-    .replay-btn:hover {
-      transform: translate(-50%, -50%) scale(1.1);
-      background: #fff;
-    }
 
     /* Hero Text */
     .hero-text {
@@ -841,16 +777,6 @@
         text-align: center;
       }
 
-      .video-cta {
-        padding: 12px 24px;
-        font-size: 0.9rem;
-      }
-
-      .replay-btn {
-        width: 60px;
-        height: 60px;
-        font-size: 1.2rem;
-      }
     }
 
     /* Small mobile */
@@ -900,15 +826,9 @@
 
   <!-- Video Hero -->
   <section class="video-hero" id="top" style="padding: 0;">
-    <video id="heroVideo" autoplay muted playsinline>
+    <video id="heroVideo" controls playsinline>
       <source src="Whisk_gtozydz0mzyjzwmh1co0uwotqjmhrtlyiwz20yy.mp4" type="video/mp4">
     </video>
-    <button class="video-cta" id="soundCta">
-      <i class="fa-solid fa-volume-high"></i> Tap for Sound
-    </button>
-    <button class="replay-btn" id="replayBtn" aria-label="Replay video">
-      <i class="fa-solid fa-play"></i>
-    </button>
     <div class="video-overlay"></div>
   </section>
 
@@ -1070,32 +990,6 @@
   </footer>
 
   <script>
-    // Video with sound control
-    const video = document.getElementById('heroVideo');
-    const soundCta = document.getElementById('soundCta');
-    const replayBtn = document.getElementById('replayBtn');
-
-    // "Tap for Sound" restarts video with audio
-    soundCta.addEventListener('click', () => {
-      soundCta.classList.add('hidden');
-      video.muted = false;
-      video.currentTime = 0;
-      video.play();
-    });
-
-    // When video ends, show replay button
-    video.addEventListener('ended', () => {
-      soundCta.classList.add('hidden');
-      replayBtn.classList.add('visible');
-    });
-
-    // Replay button restarts with sound
-    replayBtn.addEventListener('click', () => {
-      replayBtn.classList.remove('visible');
-      video.muted = false;
-      video.currentTime = 0;
-      video.play();
-    });
 
     // Nav scroll
     const navbar = document.getElementById('navbar');

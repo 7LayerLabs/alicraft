@@ -1,0 +1,7 @@
+{
+  "name": "whatthecraft",
+  "private": true,
+  "dependencies": {
+    "@instantdb/core": "^0.22.135"
+  }
+}
